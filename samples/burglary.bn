@@ -1,0 +1,57 @@
+# Variable speciFicaTion
+VAR
+name MaryCalls
+alias M
+parents Alarm
+values T F
+
+VAR
+name Earthquake
+alias E
+values T F
+
+VAR
+name Burglary
+alias B
+values T F
+
+VAR
+name JohnCalls
+alias J
+parents Alarm
+values T F
+
+VAR
+name Alarm
+alias A
+parents Burglary Earthquake
+values T F
+
+# CPT specification
+CPT
+var M
+table T T 0.7 T F 0.01 F T 0.3 F F 0.99
+
+CPT
+var JohnCalls
+table T T 0.9 T F 0.05 F T 0.1 F F 0.95
+
+CPT
+var B
+table T 0.001 F 0.999
+
+CPT
+var Earthquake
+table T 0.002 F 0.998
+
+CPT
+var Alarm
+table
+T T T 0.95
+T T F 0.94
+T F T 0.29
+T F F 0.001
+F T T 0.05
+F T F 0.06
+F F T 0.71
+F F F 0.999
